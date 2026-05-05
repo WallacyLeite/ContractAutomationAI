@@ -1,0 +1,23 @@
+# Variáveis de ambiente — nunca versionar
+.env
+
+# Contratos gerados — arquivos de clientes, não devem ir ao repositório
+backend/generated/*
+!backend/generated/.gitkeep
+
+# Template preparado — gerado localmente pelo prepare_template.py
+backend/templates/contrato_bpc_pronto.docx
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.user

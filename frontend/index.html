@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototipo — Contrato BPC</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <h1>Gerador de Contrato BPC</h1>
+      <p class="subtitle">Reestabelecimento de Benefício de Prestação Continuada</p>
+    </header>
+
+    <form id="contratoForm" class="form" novalidate>
+
+      <!-- Dados pessoais do cliente -->
+      <fieldset class="fieldset">
+        <legend>Dados Pessoais do Contratante</legend>
+
+        <div class="field">
+          <label for="nome_cliente">Nome Completo *</label>
+          <input
+            type="text"
+            id="nome_cliente"
+            name="nome_cliente"
+            placeholder="Ex: Maria Aparecida da Silva"
+            required
+          />
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="nacionalidade">Nacionalidade *</label>
+            <input
+              type="text"
+              id="nacionalidade"
+              name="nacionalidade"
+              placeholder="Ex: brasileira"
+              value="brasileira"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="estado_civil">Estado Civil *</label>
+            <select id="estado_civil" name="estado_civil" required>
+              <option value="">Selecione...</option>
+              <option value="solteiro">Solteiro(a)</option>
+              <option value="casado">Casado(a)</option>
+              <option value="divorciado">Divorciado(a)</option>
+              <option value="viúvo">Viúvo(a)</option>
+              <option value="separado">Separado(a)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="profissao">Profissão *</label>
+          <input
+            type="text"
+            id="profissao"
+            name="profissao"
+            placeholder="Ex: aposentado, do lar, agricultor"
+            required
+          />
+        </div>
+      </fieldset>
+
+      <!-- Documentos -->
+      <fieldset class="fieldset">
+        <legend>Documentos</legend>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="cpf">CPF *</label>
+            <input
+              type="text"
+              id="cpf"
+              name="cpf"
+              placeholder="000.000.000-00"
+              maxlength="14"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="rg">RG *</label>
+            <input
+              type="text"
+              id="rg"
+              name="rg"
+              placeholder="0.000.000"
+              required
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Contato e endereço -->
+      <fieldset class="fieldset">
+        <legend>Contato e Endereço</legend>
+
+        <div class="field">
+          <label for="telefone">Telefone *</label>
+          <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            placeholder="(62) 99999-9999"
+            maxlength="15"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="endereco">Endereço Completo *</label>
+          <input
+            type="text"
+            id="endereco"
+            name="endereco"
+            placeholder="Ex: Rua das Palmeiras, 45, Setor Norte, Goiânia – GO"
+            required
+          />
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="cep">CEP *</label>
+            <input
+              type="text"
+              id="cep"
+              name="cep"
+              placeholder="00000-000"
+              maxlength="9"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="cidade">Cidade *</label>
+            <input
+              type="text"
+              id="cidade"
+              name="cidade"
+              placeholder="Ex: Goiânia"
+              value="Goiânia"
+              required
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Data de assinatura -->
+      <fieldset class="fieldset">
+        <legend>Data de Assinatura do Contrato</legend>
+
+        <div class="field">
+          <label for="data_assinatura">Data *</label>
+          <input
+            type="date"
+            id="data_assinatura"
+            name="data_assinatura"
+            required
+          />
+        </div>
+      </fieldset>
+
+      <!-- Botão de envio -->
+      <button type="submit" id="submitBtn" class="btn-submit">
+        <span id="btnText">Gerar Contrato</span>
+        <span id="btnLoading" class="loading" hidden>Gerando contrato...</span>
+      </button>
+
+    </form>
+
+    <!-- Área de feedback para o usuário -->
+    <div id="statusMsg" class="status-msg" hidden></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
