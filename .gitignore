@@ -7,6 +7,7 @@ backend/generated/*
 
 # Template preparado — gerado localmente pelo prepare_template.py
 backend/templates/contrato_bpc_pronto.docx
+backend/templates/CONTRATO DE Reestabelecimento de BPC.docx
 
 # Python
 __pycache__/
