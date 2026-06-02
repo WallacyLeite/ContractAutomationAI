@@ -1,0 +1,7 @@
+fastapi==0.115.5
+uvicorn==0.32.1
+python-docx==1.1.2
+docxtpl==0.19.0
+openai==1.54.4
+python-dotenv==1.0.1
+aiofiles==23.2.1
