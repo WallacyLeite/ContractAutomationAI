@@ -4,7 +4,11 @@
  */
 
 // URL base do backend
-const API_BASE = "http://localhost:8000";
+// Em arquivo local, cai no backend de desenvolvimento.
+// Em produção, usa a mesma origem do site publicado.
+const API_BASE = window.location.origin === "null"
+  ? "http://localhost:8000"
+  : window.location.origin;
 
 // Nomes dos meses em português, usados para converter a data do input
 const MESES_PT = [
