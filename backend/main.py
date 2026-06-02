@@ -13,6 +13,7 @@ from datetime import datetime
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from docxtpl import DocxTemplate
@@ -23,6 +24,21 @@ load_dotenv()
 
 app = FastAPI(title="Gerador de Contratos BPC", version="1.0.0")
 
+# Caminhos importantes do projeto
+BASE_DIR      = Path(__file__).parent
+TEMPLATE_PATH = BASE_DIR / "templates" / "contrato_bpc_pronto.docx"
+GENERATED_DIR = BASE_DIR / "generated"
+GENERATED_DIR.mkdir(exist_ok=True)
+
+# Serve o frontend estático
+STATIC_DIR = BASE_DIR / "static"
+if STATIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+@app.get("/")
+def serve_frontend():
+    return FileResponse(str(STATIC_DIR / "index.html"))
+
 # Libera CORS para o frontend local funcionar sem bloqueio do navegador
 app.add_middleware(
     CORSMiddleware,
@@ -30,12 +46,6 @@ app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
-
-# Caminhos importantes do projeto
-BASE_DIR      = Path(__file__).parent
-TEMPLATE_PATH = BASE_DIR / "templates" / "contrato_bpc_pronto.docx"
-GENERATED_DIR = BASE_DIR / "generated"
-GENERATED_DIR.mkdir(exist_ok=True)
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,195 @@
+/* =============================================
+   MVP Prototipo — Gerador de Contratos
+   Estilo limpo, profissional e responsivo
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ---- Container principal ---- */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---- Cabeçalho ---- */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+
+.header .subtitle {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* ---- Formulário ---- */
+.form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ---- Fieldset ---- */
+.fieldset {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.fieldset legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1a1a2e;
+  padding: 0 0.5rem;
+}
+
+/* ---- Campo individual ---- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #333;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  width: 100%;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.field input.invalid {
+  border-color: #e53e3e;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ---- Linha de campos lado a lado ---- */
+.field-row {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 520px) {
+  .field-row {
+    flex-direction: column;
+  }
+}
+
+/* ---- Botão de envio ---- */
+.btn-submit {
+  padding: 0.85rem 2rem;
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.3px;
+  align-self: flex-start;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-submit:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+}
+
+/* ---- Indicador de loading ---- */
+.loading::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Mensagem de status ---- */
+.status-msg {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.status-msg.success {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status-msg.error {
+  background: #fff5f5;
+  color: #9b1c1c;
+  border: 1px solid #fed7d7;
+}
